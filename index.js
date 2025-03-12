@@ -44,8 +44,15 @@ recivedVedio();
 
 
 const displayVedioAll = (allVedios) => {
-    allVedioCard.innerHTML=""
-    
+    allVedioCard.innerHTML = ""
+    if (allVedios.length === 0) {
+        const noContent = document.createElement("div")
+        console.log(noContent.classList);
+        noContent.classList.add("col-span-4","flex","justify-center")
+        noContent.innerHTML=`<div class="w-1/2"><img src="./No data-pana.svg" alt=""></div>`
+        allVedioCard.append(noContent);
+     return
+    }
     allVedios.forEach(vedio => {
         const createCard = document.createElement("div");
         createCard.innerHTML = `
